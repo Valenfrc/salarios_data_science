@@ -25,4 +25,18 @@ with open('../data/processed/dic_cs.json', 'r', encoding='utf-8') as archivo:
 @app.route("/",methods=["GET","POST"])
 def index():
      if request.method=="POST":
-          val1=float(request.from["val1"])
+          val1=float(request.form["val1"])#work year
+          val2=request.form["val2"]#experience level
+          val3=request.form["val3"]#employee type
+          val4=float(request.form["val4"])#remote ratio
+          val5=request.form["val5"] #company size
+          val6=request.form["val6"] #employee residence num
+          val7=request.form["val7"] #company location
+
+          data=(val1,dic[val2],dic_et[val3],val4,dic_cs[val5],dic_er[val6],dic_cl[val7])
+          prediction=str(model.predict(data)[0])
+          pred_class=prediction
+        else:
+          pred_class=None
+        return render_template("index.html",prediction=pred_class)
+
