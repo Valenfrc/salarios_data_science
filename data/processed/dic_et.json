@@ -1,0 +1,6 @@
+{
+    "Part-Time": 0,
+    "Full-Time": 1,
+    "Freelance": 2,
+    "Contract": 3
+}
