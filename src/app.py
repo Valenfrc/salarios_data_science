@@ -1,4 +1,4 @@
-from flask import flask, request, render_template
+from flask import Flask, request, render_template
 import json
 from xgboost import XGBRegressor
 
@@ -36,7 +36,8 @@ def index():
           data=(val1,dic[val2],dic_et[val3],val4,dic_cs[val5],dic_er[val6],dic_cl[val7])
           prediction=str(model.predict(data)[0])
           pred_class=prediction
-        else:
+     else:
           pred_class=None
-        return render_template("index.html",prediction=pred_class)
+     return render_template("index.html",prediction=pred_class)
+
 
